@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Week 3 jQuery Demo</title>
+<style>
+span { display: inline-block; margin-left: 1em; }
+.holdings { padding: .5em 1em; }
+.avail_yes { background-color:green; color: white; }
+.avail_no { background-color: red; color: white; }
+
+.alert-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+</style>
+</head>
+<body>
+<div class="alert alert-info">This page is a demonstration of the example in Week 3's reading for the Infopeople course on modifying vendor tools.</div>
+<div class="holdings-table">
+<table class="bib_items" border="1">
+  <tbody>
+    <tr class="bibItemsHeader">
+      <th width="38%" class="bibItemsHeader">
+        Location
+      </th>
+      <th width="38%" class="bibItemsHeader">
+        Call No.
+      </th>
+      <th width="24%" class="bibItemsHeader">
+        Status
+      </th>
+    </tr>
+    <tr class="bibItemsEntry">
+      <td width="38%">Mary Idema Pew - 3rd Floor</td>
+      <td width="38%">PS3562.E353 G6 2015</td>
+      <td width="24%">DUE 09-17-15 +2 HOLDS</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div style="margin-top:1.5em;" class="btn btn-primary" id="transform">Transform the holdings table</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script>
+
+$('#transform').click(function() {
+  var itemLocation = $('table.bib_items').find('tr.bibItemsEntry').find('td:first').text();
+  var callNo = $('table.bib_items').find('tr.bibItemsEntry').find('td:nth-child(2)').text();
+  var availability = $('table.bib_items').find('tr.bibItemsEntry').find('td:last').text();
+
+  $('.holdings-table').html('<ul class="holdings-list"><li><span class="holdings">' + availability + '</span><span class="location">' + itemLocation + '</span><span class="callno">' + callNo + '</span></li></ul>');
+
+  $('.holdings:contains("DUE")').addClass('avail_no');
+  $('.holdings:contains("AVAILABLE")').addClass('avail_yes');
+});
+
+  
+
+
+</script>
+
+</body>
+</html>
