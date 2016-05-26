@@ -79,13 +79,19 @@ span { display: inline-block; margin-left: 1em; }
 
 $('#transform').click(function() {
   var itemLocation = $('table.bib_items').find('tr.bibItemsEntry').find('td:first').text();
+  console.log('The value of the itemLocation variable is: ' + itemLocation);
   var callNo = $('table.bib_items').find('tr.bibItemsEntry').find('td:nth-child(2)').text();
+  console.log('The value of the callNo variable is: ' + callNo);
   var availability = $('table.bib_items').find('tr.bibItemsEntry').find('td:last').text();
+  console.log('The value of the availability variable is: ' + availability);
+
 
   $('.holdings-table').html('<ul class="holdings-list"><li><span class="holdings">' + availability + '</span><span class="location">' + itemLocation + '</span><span class="callno">' + callNo + '</span></li></ul>');
+  console.log('Changing the HTML table into an unordered list...');
 
   $('.holdings:contains("DUE")').addClass('avail_no');
   $('.holdings:contains("AVAILABLE")').addClass('avail_yes');
+  console.log('Setting the colors of the availability statement based on whether the item is due or available');
 });
 
   
