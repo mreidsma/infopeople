@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>My Simple Webpage</title>
+
+  <!-- Below are the CSS Styles, the Presentation Layer -->
+	<style>
+	body { 
+		font-family: Helvetica, sans-serif; 
+		background-color: #eee;
+	}
+	h1 {
+		color: white;
+		background-color: #444;
+		padding: .5em 1em;
+	}
+	p {
+		margin-left: 2em;
+	}
+	</style>
+</head>
+<body>
+	<h1 id="heading">Welcome to my web page!</h1>
+	<p>There isn't much here, but I'm glad you came.</p>
+
+<!-- Now here is the interaction layer, the JavaScript -->
+<script>
+document.getElementById ('heading').textContent = 'This is my new heading';
+</script>
+</body>
+</html>
